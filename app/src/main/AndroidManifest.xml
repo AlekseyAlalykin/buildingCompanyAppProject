@@ -10,16 +10,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
+            android:name="com.example.ui.activities.MainActivity"
             android:exported="false"
             android:label="@string/title_activity_main"
+            android:screenOrientation="portrait"
+            android:noHistory="true"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.app.lib_name"
                 android:value="" />
         </activity>
         <activity
-            android:name=".LoginActivity"
+            android:name="com.example.ui.activities.LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -29,7 +31,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".RegisterActivity"
+            android:name="com.example.ui.activities.RegisterActivity"
             android:noHistory="true"
             android:screenOrientation="portrait" />
     </application>

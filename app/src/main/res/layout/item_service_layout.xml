@@ -1,6 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="3dp"
+    android:layout_marginHorizontal="15dp"
+    android:layout_marginVertical="5dp"
+    android:foreground="?selectableItemBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/service_img"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@drawable/wallpaper_rolls"
+            android:scaleType="centerCrop"/>
+
+        <TextView
+            android:id="@+id/service_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Название айтема"
+            android:textSize="@dimen/font_size_level_3"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:textColor="@color/colorBlack"/>
+
+        <TextView
+            android:id="@+id/service_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Описание айтема"
+            android:textSize="@dimen/font_size_level_4"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/colorBlack"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="5dp">
+
+            <TextView
+                android:id="@+id/service_price"
+                android:layout_centerInParent="true"
+                android:layout_alignParentLeft="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                android:textSize="@dimen/font_size_level_2"
+                android:textColor="@color/price_color"
+                android:textStyle="italic"
+                android:text="₽149 за 1м^2" />
+
+
+            <Button
+                android:id="@+id/service_button"
+                android:layout_centerInParent="true"
+                android:layout_alignParentRight="true"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:text="@string/item_service_button_text"
+                android:layout_marginRight="15dp"
+                android:layout_marginBottom="10dp"
+                android:layout_gravity="right"
+                android:textColor="@color/colorWhite"
+                android:background="@drawable/item_button" />
+
+        </RelativeLayout>
+
+
+
+
+
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
+

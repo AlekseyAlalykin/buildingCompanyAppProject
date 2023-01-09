@@ -14,6 +14,6 @@ public class SignUpService {
             throw new IllegalArgumentException();
 
         UserManager userManager = UserManager.getInstance();
-        userManager.addUser(new User(email,phoneNumber,password));
+        userManager.addUser(new User(email,phoneNumber.replace("-",""),password));
     }
 }

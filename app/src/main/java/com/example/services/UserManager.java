@@ -42,4 +42,20 @@ public class UserManager {
 
         return null;
     }
+
+    public boolean existsByEmail(String email){
+        for (User user: users)
+            if (user.getEmail().equals(email))
+                return true;
+
+        return false;
+    }
+
+    public boolean existsByPhone(String phone){
+        for (User user: users)
+            if (user.getPhoneNumber().equals(phone))
+                return true;
+
+        return false;
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.activities;
+package com.example.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.activities.R;
+import com.example.model.User;
 import com.example.services.AuthenticationService;
+import com.example.services.Session;
+import com.example.services.UserManager;
 
 
 public class LoginActivity extends AppCompatActivity {
@@ -24,6 +28,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
+
             }
         });
 
@@ -35,21 +40,38 @@ public class LoginActivity extends AppCompatActivity {
                 EditText emailField = findViewById(R.id.inputEmail);
                 EditText passwordField = findViewById(R.id.inputPassword);
 
-                try {
-                    AuthenticationService authenticationService = new AuthenticationService();
-                    authenticationService.authenticate(emailField.getText().toString(),
-                            passwordField.getText().toString());
+                String email = emailField.getText().toString();
+                String password = passwordField.getText().toString();
 
-                } catch (Exception e){
+                boolean isAuthenticated = AuthenticationService.authenticate(email, password);
+
+                if (!isAuthenticated){
                     Toast.makeText(LoginActivity.this,
                             getString(R.string.login_invalid_email_or_password),
                             Toast.LENGTH_LONG).show();
                     return;
                 }
 
+
+                UserManager userManager = UserManager.getInstance();
+                User user = userManager.getUserByEmail(email);
+
+                Session.setCurrentUser(user);
+
                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                intent.putExtra("email", user.getEmail());
+                intent.putExtra("phone", user.getPhoneNumber());
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
+            }
+        });
+
+        TextView forgotPasswordButton = findViewById(R.id.forgotPassword);
+        forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(LoginActivity.this, getString(R.string.function_not_available),
+                        Toast.LENGTH_SHORT).show();
             }
         });
     }

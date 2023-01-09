@@ -3,7 +3,7 @@ package com.example.services;
 import com.example.model.User;
 
 public class AuthenticationService {
-    public boolean authenticate(String email, String password){
+    public static boolean authenticate(String email, String password){
         User user = UserManager.getInstance().getUserByEmail(email);
         if (user == null)
             return false;

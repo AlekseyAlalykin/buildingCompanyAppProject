@@ -1,4 +1,4 @@
-package com.example.activities;
+package com.example.ui.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +10,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.activities.R;
+import com.example.services.AuthenticationService;
+import com.example.services.Session;
 import com.example.services.SignUpService;
+import com.example.services.UserManager;
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -71,7 +75,11 @@ public class RegisterActivity extends AppCompatActivity {
                     return;
                 }
 
+                Session.setCurrentUser(UserManager.getInstance().getUserByEmail(email));
+
                 Intent intent = new Intent(RegisterActivity.this, MainActivity.class);
+                intent.putExtra("email", email);
+                intent.putExtra("phone", phoneNumber);
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(intent);
             }

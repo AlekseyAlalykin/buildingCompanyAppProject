@@ -1,8 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimaryDark">#3262C4</color>
+    <color name="colorPrimary">#2180DE</color>
     <color name="colorBlack">#000000</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="colorRed">#C11515</color>
     <color name="link_color">#EA942B</color>
+    <color name="item_bnt_color">#6200EE</color>
+    <color name="item_bnt_color_pressed">#B993EF</color>
+    <color name="price_color">#439A5C</color>
+
+    <color name="lightGrey">#D3D3D3</color>
+    <color name="duskYellow">#FFC922</color>
+    
+    <color name="order_finished">#49BD6B</color>
+    <color name="order_canceled">#C11515</color>
+    <color name="order_processing">#F3E146</color>
+    <color name="order_in_progress">#4D9DEC</color>
 </resources>
